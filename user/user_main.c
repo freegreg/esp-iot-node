@@ -121,10 +121,9 @@ should be placed above the URLs they protect.
 */
 HttpdBuiltInUrl builtInUrls[]={
 	{"*", cgiRedirectApClientToHostname, "esp8266.nonet"},
-	{"/", cgiRedirect, "/index.tpl"},
-	{"/led.tpl", cgiEspFsTemplate, tplLed},
-	{"/index.tpl", cgiEspFsTemplate, tplCounter},
-	{"/led.cgi", cgiLed, NULL},
+	{"/", cgiRedirect, "/index.html"},
+	{"/relayToggle", cgiRelayToggle, NULL},
+	{"/updateRelay", cgiUpdateRelay, NULL},
 #ifdef INCLUDE_FLASH_FNS
 	{"/flash/next", cgiGetFirmwareNext, &uploadParams},
 	{"/flash/upload", cgiUploadFirmware, &uploadParams},
@@ -143,13 +142,6 @@ HttpdBuiltInUrl builtInUrls[]={
 	{"/wifi/connect.cgi", cgiWiFiConnect, NULL},
 	{"/wifi/connstatus.cgi", cgiWiFiConnStatus, NULL},
 	{"/wifi/setmode.cgi", cgiWiFiSetMode, NULL},
-
-	{"/websocket/ws.cgi", cgiWebsocket, myWebsocketConnect},
-	{"/websocket/echo.cgi", cgiWebsocket, myEchoWebsocketConnect},
-
-	{"/test", cgiRedirect, "/test/index.html"},
-	{"/test/", cgiRedirect, "/test/index.html"},
-	{"/test/test.cgi", cgiTestbed, NULL},
 
 	{"*", cgiEspFsHook, NULL}, //Catch-all cgi function for the filesystem
 	{NULL, NULL, NULL}

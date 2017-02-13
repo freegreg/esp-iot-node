@@ -41,8 +41,6 @@ int ICACHE_FLASH_ATTR cgiLed(HttpdConnData *connData) {
 	return HTTPD_CGI_DONE;
 }
 
-
-
 //Template code for the led page.
 int ICACHE_FLASH_ATTR tplLed(HttpdConnData *connData, char *token, void **arg) {
 	char buff[128];
@@ -70,6 +68,46 @@ int ICACHE_FLASH_ATTR tplCounter(HttpdConnData *connData, char *token, void **ar
 	if (os_strcmp(token, "counter")==0) {
 		hitCounter++;
 		os_sprintf(buff, "%ld", hitCounter);
+	}
+	httpdSend(connData, buff, -1);
+	return HTTPD_CGI_DONE;
+}
+
+
+//Cgi that turns the LED on or off according to the 'led' param in the POST data
+int ICACHE_FLASH_ATTR cgiRelayToggle(HttpdConnData *connData) {
+	char buff[128];
+	
+	if (connData->conn==NULL) {
+		//Connection aborted. Clean up.
+		return HTTPD_CGI_DONE;
+	}
+
+	ioToggleLed();
+
+	if (ioGetLedState()){
+		os_strcpy(buff, "true");
+	}
+	else{
+		os_strcpy(buff, "false");
+	}
+	httpdSend(connData, buff, -1);
+	return HTTPD_CGI_DONE;
+}
+
+//Cgi that turns the LED on or off according to the 'led' param in the POST data
+int ICACHE_FLASH_ATTR cgiUpdateRelay(HttpdConnData *connData) {
+	char buff[128];
+	
+	if (connData->conn==NULL) {
+		//Connection aborted. Clean up.
+		return HTTPD_CGI_DONE;
+	}
+	if (ioGetLedState()){
+		os_strcpy(buff, "true");
+	}
+	else{
+		os_strcpy(buff, "false");
 	}
 	httpdSend(connData, buff, -1);
 	return HTTPD_CGI_DONE;

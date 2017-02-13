@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Connecting...</title>
+ <!-- CSS
+ –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+ <link rel="stylesheet" href="./css/normalize.css">
+ <link rel="stylesheet" href="./css/skeleton.css">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<script type="text/javascript" src="./css/140medley.min.js"></script>
+<script type="text/javascript">
+
+var xhr=j();
+
+
+function getStatus() {
+	xhr.open("GET", "connstatus.cgi");
+	xhr.onreadystatechange=function() {
+		if (xhr.readyState==4 && xhr.status>=200 && xhr.status<300) {
+			var data=JSON.parse(xhr.responseText);
+			if (data.status=="idle") {
+				$("#status").innerHTML="Preparing to connect...";
+				window.setTimeout(getStatus, 1000);
+			} else if (data.status=="success") {
+				$("#status").innerHTML="Connected! Got IP "+data.ip+". If you're in the same network, you can access it <a href=\"http://"+data.ip+"/\">here</a>.";
+			} else if (data.status=="working") {
+				$("#status").innerHTML="Trying to connect to selected access point...";
+				window.setTimeout(getStatus, 1000);
+			} else if (data.status=="fail") {
+				$("#status").innerHTML="Connection failed. Check password and selected AP.<br /><a href=\"wifi.tpl\">Go Back</a>";
+			}
+		}
+	}
+	xhr.send();
+}
+
+window.onload=function(e) {
+	getStatus();
+};
+</script>
+</head>
+<div class="section hero">
+	<div class="container">
+		<div class="row">
+			<div class="twelve columns">
+				<h2>Connecting to AP...</h2>
+			</div> 
+		</div> 
+		<div class="row">
+			<div class="three columns">
+				<p>Status:<br />	    
+			</div>
+			<div class="nine columns">
+				<div id="status">...</div>
+     		</div>
+   		</div>
+ 	</div>
+</div>
+</body>
+</html>

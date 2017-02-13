@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Relay Control</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>-->
+  
+  <!-- Javascript
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script type="text/javascript" src="./script/ajax.js"></script>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/skeleton.css">
+  <link rel="stylesheet" href="./css/switchstyle.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link rel="icon" type="image/png" href="./images/favicon.png">
+
+</head>
+<body>
+
+<div class="section hero">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <h5 class="hero-heading" align="center">Relay Control</h5>
+        <div class="switch" align="center">
+          <input id="relaySwitch" class="cmn-toggle cmn-toggle-round" type="checkbox" onclick="changeState();">
+          <label for="relaySwitch"></label>
+        </div>
+
+      </div>
+      <div class="twelve columns">
+        <p id="relayState"  align="center">
+          Do you like bananas?
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
