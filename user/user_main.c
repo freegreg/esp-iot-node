@@ -135,13 +135,13 @@ HttpdBuiltInUrl builtInUrls[]={
 //Enable the line below to protect the WiFi configuration with an username/password combo.
 //	{"/wifi/*", authBasic, myPassFn},
 
-	{"/wifi", cgiRedirect, "/wifi/wifi.tpl"},
-	{"/wifi/", cgiRedirect, "/wifi/wifi.tpl"},
-	{"/wifi/wifiscan.cgi", cgiWiFiScan, NULL},
-	{"/wifi/wifi.tpl", cgiEspFsTemplate, tplWlan},
-	{"/wifi/connect.cgi", cgiWiFiConnect, NULL},
-	{"/wifi/connstatus.cgi", cgiWiFiConnStatus, NULL},
-	{"/wifi/setmode.cgi", cgiWiFiSetMode, NULL},
+	{"/wifi", cgiRedirect, "/wifi.tpl"},
+	{"/wifi/", cgiRedirect, "/wifi.tpl"},
+	{"/wifiscan.cgi", cgiWiFiScan, NULL},
+	{"/wifi.tpl", cgiEspFsTemplate, tplWlan},
+	{"/connect.cgi", cgiWiFiConnect, NULL},
+	{"/connstatus.cgi", cgiWiFiConnStatus, NULL},
+	{"/setmode.cgi", cgiWiFiSetMode, NULL},
 
 	{"*", cgiEspFsHook, NULL}, //Catch-all cgi function for the filesystem
 	{NULL, NULL, NULL}

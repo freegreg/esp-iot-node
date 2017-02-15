@@ -5,7 +5,12 @@
 <link rel="stylesheet" href="./css/normalize.css">
 <link rel="stylesheet" href="./css/skeleton.css">
 <link rel="stylesheet" type="text/css" href="./css/style.css">
-<script type="text/javascript" src="./css/140medley.min.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link rel="icon" type="image/png" href="./images/favicon.png">
+
+<script type="text/javascript" src="./script/140medley.min.js"></script>
 <script type="text/javascript">
 
 var xhr=j();
@@ -78,74 +83,34 @@ window.onload=function(e) {
 </script>
 </head>
 <body>
-<div id="main">
-<p>
-Current WiFi mode: %WiFiMode%
-</p>
-<p>
-Note: %WiFiapwarn%
-</p>
-<form name="wifiform" action="connect.cgi" method="post">
-<p>
-To connect to a WiFi network, please select one of the detected networks...<br>
-<div id="aps">Scanning...</div>
-<br>
-WiFi password, if applicable: <br />
-<input type="text" name="passwd" val="%WiFiPasswd%"> <br />
-<input type="submit" name="connect" value="Connect!">
-</p>
-</div>
-</body>
-
-
-<body>
 <div class="section hero">
 	<div class="container">
 		<div class="row">
 			<div class="one-half column">
-				<p>
-					Current WiFi mode: %WiFiMode%
-				</p>
+				<p>Current WiFi mode: %WiFiMode%</p>
 			</div> 
 			<div class="one-half column">
-				<p>
-					Note: %WiFiapwarn%
-				</p>
+				<p>Note: %WiFiapwarn%</p>
 			</div> 
 		</div> 
-
-  <div class="section values">
-    <div class="container">
-      <div class="row">
-        <div class="one column">
-          <h2 class="value-multiplier">67%</h2>
-          <h5 class="value-heading">Purchase Increase</h5>
-          <p class="value-description">Percentage of users more likely to purchase on mobile friendly site.</p>
-        </div>
-        <div class="one-third column value">
-          <h2 class="value-multiplier">90%</h2>
-          <h5 class="value-heading">Multi-device Users</h5>
-          <p class="value-description">Most of the world accesses the internet on multiple devices.</p>
-        </div>
-        <div class="one-third column value">
-          <h2 class="value-multiplier">66%</h2>
-          <h5 class="value-heading">Sad Users</h5>
-          <p class="value-description">Percentage of users that are frustrated with page load times.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-		
+	<div/>
+<div/>
+<div class="section values">
+	<div class="container">	
 		<div class="row">
-			<div class="three columns">
-				<p>Status:<br />	    
+			<div class="one-half columns">
+				<form name="wifiform" action="connect.cgi" method="post">    
 			</div>
-			<div class="nine columns">
-				<div id="status">...</div>
+			<div class="one-half columns">
+				<p>To connect to a WiFi network, please select one of the detected networks...<br>
+					<div id="aps">Scanning...</div>
+					<br>WiFi password, if applicable: <br />
+					<input type="text" name="passwd" val="%WiFiPasswd%"> <br />
+					<input type="submit" name="connect" value="Connect!">
+				</p>
      		</div>
    		</div>
  	</div>
 </div>
 </body>
-
 </html>

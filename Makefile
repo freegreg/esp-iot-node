@@ -181,7 +181,12 @@ endef
 
 .PHONY: all checkdirs clean libesphttpd default-tgt
 
+path-patch:
+	PATH=/home/greg/esp-open-sdk/xtensa-lx106-elf/bin/:$(PATH)
+	@echo $(PATH)
+
 all: checkdirs $(TARGET_OUT) $(FW_BASE)
+
 
 libesphttpd/Makefile:
 	$(Q) echo "No libesphttpd submodule found. Using git to fetch it..."

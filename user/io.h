@@ -3,11 +3,10 @@
 
 void ICACHE_FLASH_ATTR ioLed(int ena);
 void ICACHE_FLASH_ATTR ioToggleLed();
-void ICACHE_FLASH_ATTR ioToggleLed();
 
-char ioGetLedState();
-char ioGetButtonState();
-char ioGetRelayState();
+int ioGetLedState();
+int ioGetButtonState();
+int ioGetRelayState();
 
 void ioSetRelayOn();
 void ioSetRelayOff();

@@ -21,9 +21,9 @@
 #define BTNGPIO 0
 #define RELAYGPIO 12
 
-char ioGetLedState() 	{ return (GPIO_REG_READ(GPIO_OUT_ADDRESS) & (1 << LEDGPIO));}
-char ioGetButtonState() { return !(GPIO_REG_READ(GPIO_OUT_ADDRESS) & (1 << BTNGPIO));}
-char ioGetRelayState() 	{ return (GPIO_REG_READ(GPIO_OUT_ADDRESS) & (1 << RELAYGPIO));}
+int ioGetLedState() 	{ return !(GPIO_REG_READ(GPIO_OUT_ADDRESS) 	& (1 << LEDGPIO));}
+int ioGetButtonState()  { return !(GPIO_REG_READ(GPIO_OUT_ADDRESS) 	& (1 << BTNGPIO));}
+int ioGetRelayState() 	{ return (GPIO_REG_READ(GPIO_OUT_ADDRESS) 	& (1 << RELAYGPIO));}
 
 void ioSetRelayOn() 	{gpio_output_set((1 << RELAYGPIO), 0, 0, 0);}
 void ioSetRelayOff() 	{gpio_output_set(0, (1 << RELAYGPIO), 0, 0);}
