@@ -51,7 +51,7 @@ APPGEN		?= $(SDK_BASE)/tools/gen_appbin.py
 TARGET		= httpd
 
 # which modules (subdirectories) of the project to include in compiling
-MODULES		= user
+MODULES		= user user/mqtt user/mqtt/mqtt user/mqtt/modules
 EXTRA_INCDIR	= include libesphttpd/include
 
 # libraries used in this project, mainly provided by the SDK
@@ -60,7 +60,7 @@ LIBS		= c gcc hal phy pp net80211 wpa main lwip crypto
 LIBS += esphttpd
 
 # compiler flags using during compilation of source files
-CFLAGS		= -Os -ggdb -std=gnu99 -Werror -Wpointer-arith -Wundef -Wall -Wl,-EL -fno-inline-functions \
+CFLAGS		= -Os -ggdb -std=gnu99 -w -Wpointer-arith -Wundef -Wall -Wl,-EL -fno-inline-functions \
 		-nostdlib -mlongcalls -mtext-section-literals  -D__ets__ -DICACHE_FLASH \
 		-Wno-address
 
