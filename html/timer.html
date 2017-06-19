@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<title>TIMER Control</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/w3.css">
+<link rel="stylesheet" href="./css/style.css">
+
+<link rel="stylesheet" href="./css/switchstyle.css">
+<script type="text/javascript" src="./script/style.js"></script>
+<script type="text/javascript" src="./script/timer.js"></script>
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link rel="icon" type="image/png" href="./images/favicon.png">
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-green w3-card-2 w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-opennav w3-right w3-padding-small w3-hover-white w3-large w3-green container-bar" href="javascript:void(0);" onclick="menuToggle()" title="Toggle Navigation Menu">
+    <div class="w3-center w3-padding-tiny">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </a>
+    <a href="./index.html" class="w3-bar-item w3-button w3-padding-large w3-hover-white">RELAY</a>
+    <a href="./wifi/wifi.tpl" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">WIFI</a>
+    <a href="./flash/index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">FLASH</a>
+    <a href="./timer.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white">TIMER</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-navblock w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a class="w3-padding-large" href="./index.html">RELAY</a>
+    <a class="w3-padding-large" href="./wifi/wifi.tpl">WIFI</a>
+    <a class="w3-padding-large" href="./flash/index.html">FLASH</a>
+    <a class="w3-padding-large" href="./timer.html">TIMER</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-green w3-center w3-padding-32">
+  <h1 class="w3-margin w3-jumbo">TIMER</h1>
+    <div class="w3-content">
+  <p class="w3-xlarge" id="idRelaySwitchNote">Set new timer</p>
+  <div class="w3-row-padding">
+    <div class="w3-third w3-padding-8">
+      <div class="w3-container w3-card-4">
+        <p>
+        <label class="w3-label w3-text-white"><b>Set time</b></label>
+        <input class="w3-input w3-border" type="time" id="time" value = "00:00:00">
+        </p>
+      </div>
+    </div>
+    <div class="w3-third w3-padding-8">
+      <div class="w3-container w3-card-4">
+        <p>
+        <label class="w3-label w3-text-white"><b>Action</b></label>
+        <select class="w3-select" id="option">
+          <option value="" disabled selected>Choose Action</option>
+          <option value="1">On</option>
+          <option value="2">Off</option>
+        </select>
+        </p>
+      </div>
+    </div>
+    <div class="w3-third w3-padding-8">
+      <div class="w3-dropdown-hover w3-container w3-green w3-card-4">
+      <p>
+      <button class="w3-button w3-text-green w3-white w3-margin">Choose week days:</button>
+        <div class="w3-dropdown-content w3-green w3-left-align w3-container w3-card-4">
+          <p><input class="w3-check" id="Everyday" type="checkbox"><label class="w3-validate"><b>Everyday</b></label></p>
+          <p><input class="w3-check" id="Only Today" type="checkbox"><label class="w3-validate"><b>Only Today</b></label></p>
+          <p><input class="w3-check" id="Only Tomorrow" type="checkbox"><label class="w3-validate"><b>Only Tomorrow</b></label></p>
+          <p><input class="w3-check" id="Monday" type="checkbox"><label class="w3-validate">Monday</label></p>
+          <p><input class="w3-check" id="Tuesday" type="checkbox"><label class="w3-validate">Tuesday</label></p>
+          <p><input class="w3-check" id="Wednesday" type="checkbox"><label class="w3-validate">Wednesday</label></p>
+          <p><input class="w3-check" id="Thursday" type="checkbox"><label class="w3-validate">Thursday</label></p>
+          <p><input class="w3-check" id="Friday" type="checkbox"><label class="w3-validate">Friday</label></p>
+          <p><input class="w3-check" id="Saturday" type="checkbox"><label class="w3-validate">Saturday</label></p>
+          <p><input class="w3-check" id="Sunday" type="checkbox"><label class="w3-validate">Sunday</label></p>
+        </div>
+      </p>
+      </div>
+    </div>
+  </div>
+
+<div class="w3-card-4">
+<header class="w3-container w3-blue">
+
+  <h1>New timer setting</h1>
+</header>
+
+<div class="w3-container">
+  <p id="newTimerSettings"> </p>
+</div>
+</div>
+
+
+<button class="w3-btn w3-padding-16 w3-large w3-margin-top w3-deep-orange" onclick="addTimer()" id="idRelayButton">Add timer</button>
+
+  </div>
+  
+
+</header>
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-12 w3-container w3-center">
+  <div class="w3-content">
+      <h5 class="w3-padding-12">Timers available</h5>
+    <table class="w3-table-all w3-hoverable">
+      <thead>
+          <tr>
+              <th>Enable</th>
+            <th>Date</th>
+              <th>Time</th>
+              <th>Action</th>
+          </tr>
+        </thead>
+        <tbody  id="timersTable">
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge"><i>What new technology does is create new opportunities to do a job that customers want done.</i></h1>
+  <p>Tim O'Reilly</p>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-324 w3-center w3-opacity">  
+ <p>Powered by <a href="#" target="_blank">Greg</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<title>Upgrade firmware</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/w3.css">
+<link rel="stylesheet" href="../css/style.css">
+
+<script type="text/javascript" src="../script/140medley.min.js"></script>
+<script type="text/javascript" src="../script/flash.js"></script>
+<!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<link rel="icon" type="image/png" href="../images/favicon.png">
+
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-green w3-card-2 w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-opennav w3-right w3-padding-small w3-hover-white w3-large w3-green container-bar" href="javascript:void(0);" onclick="menuToggle()" title="Toggle Navigation Menu">
+    <div class="w3-center w3-padding-tiny">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </a>
+    <a href="../index.html" class="w3-bar-item w3-button w3-padding-large w3-hover-white">RELAY</a>
+    <a href="../wifi/wifi.tpl" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">WIFI</a>
+    <a href="../flash/index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white">FLASH</a>
+    <a href="../timer.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">TIMER</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-navblock w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a class="w3-padding-large" href="../index.html">RELAY</a>
+    <a class="w3-padding-large" href="../wifi/wifi.tpl">WIFI</a>
+    <a class="w3-padding-large" href="../flash/index.html">FLASH</a>
+    <a class="w3-padding-large" href="../timer.html">TIMER</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-green w3-center w3-padding-24">
+  <h1 class="w3-margin w3-jumbo">Update firmware</h1>
+  <p class="w3-medium">Loading...</p>
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-12 w3-container w3-center">
+  <div class="w3-content w3-padding-large">
+  	<div class="w3-card-8 w3-padding-large">
+		<input type="file" id="file" class="w3-input w3-border w3-green "/>
+		<input type="submit" value="Upgrade!" onclick="doUpgrade()" class="w3-btn w3-green w3-margin"/>
+		<div id="progressbar" class="w3-light-grey">
+			<div id="progressbarinner" class="w3-container w3-green"  style="width:0%" >0%</div>
+		</div>
+  </div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge"><i>The best way to predict future is to create IT.</i></h1>
+  <p>Petter Drucker</p>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-32 w3-center w3-opacity">  
+ <p>Powered by <a href="#" target="_blank">Greg</a></p>
+</footer>
+
+</body>
